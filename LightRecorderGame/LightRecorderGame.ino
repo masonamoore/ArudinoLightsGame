@@ -19,9 +19,9 @@ const byte LED_COUNT = 4;
 const byte SLOT_COUNT = 4;
 const byte MAX_NOTES_PER_SLOT = 64;
 
-const byte ledPins[LED_COUNT] = {2, 3, 4, 5};
+const byte ledPins[LED_COUNT] = {38, 40, 42, 44};
 const int noteFrequencies[LED_COUNT] = {262, 330, 392, 523};
-const byte buzzerPin = 9;
+const byte buzzerPin = 46;
 
 const unsigned int noteDurationMs = 220;
 const unsigned int playbackPauseMs = 40;

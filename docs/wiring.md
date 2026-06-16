@@ -6,7 +6,7 @@ Open [wiring.svg](wiring.svg) for a visual breadboard reference while you build.
 
 ## Board Labels
 
-The Elegoo Mega board labels the digital header pins as plain numbers. In this guide, `2`, `3`, `4`, `5`, `9`, `22`, `24`, `26`, `28`, `30`, `32`, `34`, and `36` mean those exact numbered Mega pins.
+The Elegoo Mega board labels the digital header pins as plain numbers. This build uses only the `22`-`53` digital-pin block for signal wires. In this guide, `22`, `24`, `26`, `28`, `30`, `32`, `34`, `36`, `38`, `40`, `42`, `44`, and `46` mean those exact numbered Mega pins.
 
 `GND` means a ground pin. `5V` means the 5 volt power pin, used here as the red breadboard charge rail.
 
@@ -18,19 +18,19 @@ Use the breadboard row numbers printed on the side. Put the LED legs across the 
 | --- | --- | --- |
 | Red `+` rail | Mega `5V` | Charge rail, available for modules that need 5V |
 | Blue `-` rail | Mega `GND` | Shared ground rail |
-| Row `6a` | Mega pin `2` through a 220 ohm resistor | LED 1 signal |
+| Row `6a` | Mega pin `38` through a 220 ohm resistor | LED 1 signal |
 | Row `6f` | LED 1 long leg | LED 1 anode |
 | Row `6j` | Blue `-` rail | LED 1 short leg to ground |
-| Row `8a` | Mega pin `3` through a 220 ohm resistor | LED 2 signal |
+| Row `8a` | Mega pin `40` through a 220 ohm resistor | LED 2 signal |
 | Row `8f` | LED 2 long leg | LED 2 anode |
 | Row `8j` | Blue `-` rail | LED 2 short leg to ground |
-| Row `10a` | Mega pin `4` through a 220 ohm resistor | LED 3 signal |
+| Row `10a` | Mega pin `42` through a 220 ohm resistor | LED 3 signal |
 | Row `10f` | LED 3 long leg | LED 3 anode |
 | Row `10j` | Blue `-` rail | LED 3 short leg to ground |
-| Row `12a` | Mega pin `5` through a 220 ohm resistor | LED 4 signal |
+| Row `12a` | Mega pin `44` through a 220 ohm resistor | LED 4 signal |
 | Row `12f` | LED 4 long leg | LED 4 anode |
 | Row `12j` | Blue `-` rail | LED 4 short leg to ground |
-| Row `16a` | Mega pin `9` | Buzzer positive leg |
+| Row `16a` | Mega pin `46` | Buzzer positive leg |
 | Row `16j` | Blue `-` rail | Buzzer negative leg |
 
 ## Keypad Wire Order
@@ -65,9 +65,9 @@ flowchart LR
 
   Mega -- "5V" --> Charge
   Mega -- "GND" --> Ground
-  Mega -- "pins 2, 3, 4, 5 -> resistors -> LED long legs" --> LEDS
+  Mega -- "pins 38, 40, 42, 44 -> resistors -> LED long legs" --> LEDS
   LEDS -- "LED short legs" --> Ground
-  Mega -- "pin 9 -> buzzer +" --> Buzzer
+  Mega -- "pin 46 -> buzzer +" --> Buzzer
   Buzzer -- "buzzer -" --> Ground
   Mega -- "pins 22, 24, 26, 28, 30, 32, 34, 36" --> Keypad
 ```
@@ -78,8 +78,8 @@ flowchart LR
 2. Connect Mega `GND` to the breadboard blue `-` rail.
 3. Put LED 1 on row `6`, LED 2 on row `8`, LED 3 on row `10`, and LED 4 on row `12`.
 4. Connect each LED short leg to the blue `-` ground rail.
-5. Connect Mega pins `2`, `3`, `4`, and `5` to the matching LED rows through 220 ohm resistors.
-6. Put the buzzer on row `16`; connect buzzer `+` to Mega pin `9` and buzzer `-` to the blue `-` rail.
+5. Connect Mega pins `38`, `40`, `42`, and `44` to the matching LED rows through 220 ohm resistors.
+6. Put the buzzer on row `16`; connect buzzer `+` to Mega pin `46` and buzzer `-` to the blue `-` rail.
 7. Put keypad wires `1` through `8` on breadboard rows `21` through `28`.
 8. Connect rows `21` through `28` to Mega pins `22`, `24`, `26`, `28`, `30`, `32`, `34`, and `36` in that order.
 

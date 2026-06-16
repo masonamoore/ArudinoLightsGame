@@ -23,8 +23,8 @@ This is the working build spec for the Arduino light game. It documents the v1 b
 
 | Function | Pins |
 | --- | --- |
-| LED 1-4 | Mega pins `2`, `3`, `4`, `5` |
-| Passive buzzer | Mega pin `9` |
+| LED 1-4 | Mega pins `38`, `40`, `42`, `44` |
+| Passive buzzer | Mega pin `46` |
 | Keypad rows | Mega pins `22`, `24`, `26`, `28` |
 | Keypad columns | Mega pins `30`, `32`, `34`, `36` |
 | Charge rail | Mega `5V` to breadboard red `+` rail |

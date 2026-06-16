@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1400" height="900" viewBox="0 0 1400 900" role="img" aria-labelledby="title desc">
   <title id="title">Elegoo Mega 2560 breadboard wiring diagram</title>
-  <desc id="desc">Breadboard coordinate wiring for the Arduino light recorder game using Mega pins 2, 3, 4, 5, 9, 22, 24, 26, 28, 30, 32, 34, 36, 5V, and GND.</desc>
+  <desc id="desc">Breadboard coordinate wiring for the Arduino light recorder game using Mega pins 22, 24, 26, 28, 30, 32, 34, 36, 38, 40, 42, 44, 46, 5V, and GND.</desc>
   <defs>
     <style>
       .label { font: 700 20px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #14212b; }
@@ -33,11 +33,11 @@
   <text x="78" y="198" class="small">Controller board pin labels</text>
 
   <g id="mega-pins">
-    <rect x="290" y="240" width="46" height="24" rx="4" class="pin"/><text x="307" y="257" class="tiny">2</text>
-    <rect x="290" y="272" width="46" height="24" rx="4" class="pin"/><text x="307" y="289" class="tiny">3</text>
-    <rect x="290" y="304" width="46" height="24" rx="4" class="pin"/><text x="307" y="321" class="tiny">4</text>
-    <rect x="290" y="336" width="46" height="24" rx="4" class="pin"/><text x="307" y="353" class="tiny">5</text>
-    <rect x="290" y="386" width="46" height="24" rx="4" class="pin"/><text x="307" y="403" class="tiny">9</text>
+    <rect x="290" y="240" width="46" height="24" rx="4" class="pin"/><text x="300" y="257" class="tiny">38</text>
+    <rect x="290" y="272" width="46" height="24" rx="4" class="pin"/><text x="300" y="289" class="tiny">40</text>
+    <rect x="290" y="304" width="46" height="24" rx="4" class="pin"/><text x="300" y="321" class="tiny">42</text>
+    <rect x="290" y="336" width="46" height="24" rx="4" class="pin"/><text x="300" y="353" class="tiny">44</text>
+    <rect x="290" y="386" width="46" height="24" rx="4" class="pin"/><text x="300" y="403" class="tiny">46</text>
     <rect x="290" y="436" width="46" height="24" rx="4" class="pin"/><text x="298" y="453" class="tiny">GND</text>
     <rect x="290" y="468" width="46" height="24" rx="4" class="pin"/><text x="300" y="485" class="tiny">5V</text>
     <rect x="290" y="524" width="46" height="24" rx="4" class="pin"/><text x="300" y="541" class="tiny">22</text>
@@ -154,5 +154,5 @@
 
   <rect x="48" y="800" width="1304" height="56" rx="8" fill="#ffffff" stroke="#ccd6df"/>
   <text x="70" y="824" class="small">Power flow: Mega 5V -> red + rail. Mega GND -> blue - rail. LEDs and buzzer return to blue - rail.</text>
-  <text x="70" y="846" class="small">Signal flow: Mega pins 2,3,4,5 -> LED rows 6,8,10,12. Mega pin 9 -> buzzer row 16. Keypad wires 1-8 -> rows 21-28 -> Mega pins 22,24,26,28,30,32,34,36.</text>
+  <text x="70" y="846" class="small">Signal flow: Mega pins 38,40,42,44 -> LED rows 6,8,10,12. Mega pin 46 -> buzzer row 16. Keypad wires 1-8 -> rows 21-28 -> Mega pins 22,24,26,28,30,32,34,36.</text>
 </svg>

@@ -105,6 +105,6 @@ http://127.0.0.1:4173/simulator/index.html
 
 - Board: Elegoo Mega 2560 controller board.
 - Keypad: standard 4x4 membrane keypad with rows on pins `22`, `24`, `26`, `28` and columns on pins `30`, `32`, `34`, `36`.
-- LEDs: pins `2`, `3`, `4`, and `5`.
-- Buzzer: pin `9`.
+- LEDs: pins `38`, `40`, `42`, and `44`.
+- Buzzer: pin `46`.
 - Songs are held in RAM, so they reset when the Arduino loses power.
