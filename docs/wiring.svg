@@ -1,0 +1,109 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Arduino Mega 2560 light recorder wiring diagram</title>
+  <desc id="desc">Wiring diagram showing four LEDs on pins D2 through D5, a buzzer on D9, and a 4x4 keypad on pins D22 through D36.</desc>
+  <defs>
+    <style>
+      .label { font: 700 18px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #14212b; }
+      .small { font: 600 13px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #314252; }
+      .tiny { font: 600 11px system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; fill: #314252; }
+      .pin { fill: #f7fafc; stroke: #6b7d8f; stroke-width: 1.5; }
+      .board { fill: #d7f0e8; stroke: #18695d; stroke-width: 3; }
+      .breadboard { fill: #f8fbfd; stroke: #8b9aaa; stroke-width: 3; }
+      .rail-red { stroke: #d92d20; stroke-width: 5; }
+      .rail-blue { stroke: #1570ef; stroke-width: 5; }
+      .wire-red { stroke: #d92d20; stroke-width: 4; fill: none; }
+      .wire-yellow { stroke: #d89b00; stroke-width: 4; fill: none; }
+      .wire-green { stroke: #079455; stroke-width: 4; fill: none; }
+      .wire-blue { stroke: #1570ef; stroke-width: 4; fill: none; }
+      .wire-black { stroke: #182230; stroke-width: 4; fill: none; }
+      .wire-purple { stroke: #7a4dd8; stroke-width: 3; fill: none; }
+      .wire-gray { stroke: #667085; stroke-width: 3; fill: none; }
+      .resistor { fill: #f4d2a1; stroke: #9b6a24; stroke-width: 2; }
+    </style>
+  </defs>
+
+  <rect width="1200" height="760" fill="#eef3f6"/>
+  <text x="48" y="54" class="label" font-size="28">Arduino Light Recorder Wiring</text>
+  <text x="48" y="82" class="small">Mega 2560 + 4x4 keypad + four LEDs + optional passive buzzer</text>
+
+  <rect x="54" y="130" width="310" height="520" rx="18" class="board"/>
+  <text x="86" y="170" class="label">Arduino Mega 2560</text>
+  <text x="86" y="198" class="small">Use the digital pins on the right side</text>
+
+  <g id="arduino-pins">
+    <rect x="300" y="235" width="42" height="24" rx="4" class="pin"/><text x="310" y="252" class="tiny">D2</text>
+    <rect x="300" y="267" width="42" height="24" rx="4" class="pin"/><text x="310" y="284" class="tiny">D3</text>
+    <rect x="300" y="299" width="42" height="24" rx="4" class="pin"/><text x="310" y="316" class="tiny">D4</text>
+    <rect x="300" y="331" width="42" height="24" rx="4" class="pin"/><text x="310" y="348" class="tiny">D5</text>
+    <rect x="300" y="379" width="42" height="24" rx="4" class="pin"/><text x="310" y="396" class="tiny">D9</text>
+    <rect x="300" y="427" width="42" height="24" rx="4" class="pin"/><text x="307" y="444" class="tiny">GND</text>
+    <rect x="300" y="475" width="42" height="24" rx="4" class="pin"/><text x="306" y="492" class="tiny">D22</text>
+    <rect x="300" y="507" width="42" height="24" rx="4" class="pin"/><text x="306" y="524" class="tiny">D24</text>
+    <rect x="300" y="539" width="42" height="24" rx="4" class="pin"/><text x="306" y="556" class="tiny">D26</text>
+    <rect x="300" y="571" width="42" height="24" rx="4" class="pin"/><text x="306" y="588" class="tiny">D28</text>
+    <rect x="114" y="475" width="42" height="24" rx="4" class="pin"/><text x="120" y="492" class="tiny">D30</text>
+    <rect x="114" y="507" width="42" height="24" rx="4" class="pin"/><text x="120" y="524" class="tiny">D32</text>
+    <rect x="114" y="539" width="42" height="24" rx="4" class="pin"/><text x="120" y="556" class="tiny">D34</text>
+    <rect x="114" y="571" width="42" height="24" rx="4" class="pin"/><text x="120" y="588" class="tiny">D36</text>
+  </g>
+
+  <rect x="464" y="138" width="430" height="420" rx="16" class="breadboard"/>
+  <text x="492" y="174" class="label">Breadboard</text>
+  <line x1="500" y1="210" x2="860" y2="210" class="rail-red"/>
+  <line x1="500" y1="532" x2="860" y2="532" class="rail-blue"/>
+  <text x="506" y="198" class="tiny">+ rail unused</text>
+  <text x="506" y="552" class="tiny">GND rail</text>
+
+  <g id="leds">
+    <circle cx="550" cy="300" r="28" fill="#d92d20" stroke="#831f16" stroke-width="4"/>
+    <circle cx="640" cy="300" r="28" fill="#d89b00" stroke="#8a6100" stroke-width="4"/>
+    <circle cx="730" cy="300" r="28" fill="#079455" stroke="#05603a" stroke-width="4"/>
+    <circle cx="820" cy="300" r="28" fill="#1570ef" stroke="#1849a9" stroke-width="4"/>
+    <text x="534" y="352" class="small">LED 1</text>
+    <text x="624" y="352" class="small">LED 2</text>
+    <text x="714" y="352" class="small">LED 3</text>
+    <text x="804" y="352" class="small">LED 4</text>
+
+    <rect x="530" y="395" width="40" height="16" rx="4" class="resistor"/>
+    <rect x="620" y="395" width="40" height="16" rx="4" class="resistor"/>
+    <rect x="710" y="395" width="40" height="16" rx="4" class="resistor"/>
+    <rect x="800" y="395" width="40" height="16" rx="4" class="resistor"/>
+    <text x="524" y="430" class="tiny">220 ohm</text>
+    <text x="614" y="430" class="tiny">220 ohm</text>
+    <text x="704" y="430" class="tiny">220 ohm</text>
+    <text x="794" y="430" class="tiny">220 ohm</text>
+  </g>
+
+  <path d="M342 247 C420 247 452 300 522 300" class="wire-red"/>
+  <path d="M342 279 C430 279 452 395 530 403" class="wire-yellow"/>
+  <path d="M342 311 C438 311 520 403 620 403" class="wire-green"/>
+  <path d="M342 343 C445 343 610 403 710 403" class="wire-blue"/>
+  <path d="M570 403 L600 403 L600 532" class="wire-black"/>
+  <path d="M660 403 L690 403 L690 532" class="wire-black"/>
+  <path d="M750 403 L780 403 L780 532" class="wire-black"/>
+  <path d="M840 403 L860 403 L860 532" class="wire-black"/>
+  <path d="M342 439 C420 470 460 532 500 532" class="wire-black"/>
+
+  <rect x="968" y="150" width="142" height="142" rx="16" fill="#ffffff" stroke="#8b9aaa" stroke-width="3"/>
+  <text x="1000" y="188" class="label">Keypad</text>
+  <text x="988" y="216" class="small">4 rows</text>
+  <text x="988" y="240" class="small">4 columns</text>
+  <text x="988" y="267" class="tiny">R1 R2 R3 R4 C1 C2 C3 C4</text>
+
+  <path d="M342 487 C570 610 840 188 968 188" class="wire-purple"/>
+  <path d="M342 519 C570 626 846 206 968 206" class="wire-purple"/>
+  <path d="M342 551 C570 642 852 224 968 224" class="wire-purple"/>
+  <path d="M342 583 C570 658 858 242 968 242" class="wire-purple"/>
+  <path d="M156 487 C420 700 860 260 968 260" class="wire-gray"/>
+  <path d="M156 519 C420 716 866 278 968 278" class="wire-gray"/>
+  <path d="M156 551 C420 732 890 296 968 296" class="wire-gray"/>
+  <path d="M156 583 C420 748 900 314 968 314" class="wire-gray"/>
+
+  <circle cx="1015" cy="420" r="28" fill="#f8fbfd" stroke="#6b7d8f" stroke-width="4"/>
+  <text x="983" y="470" class="small">Buzzer</text>
+  <path d="M342 391 C590 612 900 420 987 420" class="wire-yellow"/>
+  <path d="M1015 448 C990 530 930 532 860 532" class="wire-black"/>
+
+  <rect x="62" y="680" width="1076" height="44" rx="8" fill="#ffffff" stroke="#d0d8e0"/>
+  <text x="82" y="708" class="small">Pins: LEDs D2-D5 through 220 ohm resistors, buzzer D9, keypad rows D22/D24/D26/D28, keypad columns D30/D32/D34/D36, all grounds to GND rail.</text>
+</svg>

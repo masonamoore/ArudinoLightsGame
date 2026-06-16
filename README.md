@@ -28,7 +28,7 @@ The Arduino sketch stores each saved pattern as a fixed-size linked list inside 
 - Passive buzzer, optional but supported
 - Breadboard and jumper wires
 
-Wire the board from [docs/wiring.md](docs/wiring.md).
+Wire the board from [docs/wiring.md](docs/wiring.md), or open the visual diagram at [docs/wiring.svg](docs/wiring.svg).
 
 ## Run The Arduino Code
 
@@ -62,6 +62,18 @@ arduino-cli monitor -p /dev/cu.usbmodemXXXX --config baudrate=9600
 ## Try The UI Simulator
 
 Open [simulator/index.html](simulator/index.html) in a browser. It mirrors the keypad controls, shows what each key does, and lights the matching LED on button press.
+
+If your browser blocks local files, run a tiny local server from the repo root:
+
+```sh
+python3 -m http.server 4173
+```
+
+Then open:
+
+```text
+http://127.0.0.1:4173/simulator/index.html
+```
 
 ## Current Assumptions
 

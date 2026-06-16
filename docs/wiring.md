@@ -2,6 +2,8 @@
 
 This layout targets an Arduino Mega 2560, a 4x4 membrane keypad, four LEDs, four 220 ohm resistors, and an optional passive buzzer.
 
+Open [wiring.svg](wiring.svg) for a visual breadboard-style reference while you build.
+
 ## Pin Map
 
 | Part | Arduino pin | Breadboard connection |
