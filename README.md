@@ -30,11 +30,25 @@ The Arduino sketch stores each saved pattern as a fixed-size linked list inside 
 
 Wire the board from [docs/wiring.md](docs/wiring.md), or open the visual diagram at [docs/wiring.svg](docs/wiring.svg).
 
-The working feature spec and remaining hardware decisions live in [docs/spec.md](docs/spec.md).
+The confirmed v1 feature spec lives in [docs/spec.md](docs/spec.md).
 
 ## Run The Arduino Code
 
-Install the Arduino CLI and the keypad library:
+Install the Arduino CLI.
+
+On macOS with Homebrew:
+
+```sh
+brew install arduino-cli
+```
+
+Or install it from the Arduino CLI docs:
+
+```text
+https://arduino.github.io/arduino-cli/latest/installation/
+```
+
+Install the Mega board core and keypad library:
 
 ```sh
 arduino-cli core update-index
@@ -60,6 +74,16 @@ Open the Serial Monitor at 9600 baud:
 ```sh
 arduino-cli monitor -p /dev/cu.usbmodemXXXX --config baudrate=9600
 ```
+
+## Bench Test Checklist
+
+1. Wire the LEDs, keypad, and optional buzzer from [docs/wiring.md](docs/wiring.md).
+2. Compile and upload the sketch.
+3. Open Serial Monitor at `9600` baud.
+4. Press `1`, `2`, `3`, and `4`; each key should flash one LED.
+5. Press `5`, then press a few light keys, then press `6`; Serial Monitor should report the saved notes.
+6. Press `A`; the saved pattern should play immediately.
+7. If keypad labels are scrambled, adjust `rowPins` and `colPins` in [LightRecorderGame/LightRecorderGame.ino](LightRecorderGame/LightRecorderGame.ino).
 
 ## Try The UI Simulator
 
