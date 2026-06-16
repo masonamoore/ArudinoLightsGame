@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Arduino Light Recorder Game</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="control-surface" aria-labelledby="title">
+        <div class="topbar">
+          <div>
+            <p class="eyebrow">Arduino Mega 2560</p>
+            <h1 id="title">Light Recorder Game</h1>
+          </div>
+          <div class="status" id="status">Slot A ready</div>
+        </div>
+
+        <div class="workspace">
+          <section class="keypad-panel" aria-label="Keypad controls">
+            <div class="keypad" id="keypad"></div>
+          </section>
+
+          <section class="light-panel" aria-label="LED output">
+            <div class="lights" id="lights">
+              <div class="led led-red" data-led="0"><span>1</span></div>
+              <div class="led led-yellow" data-led="1"><span>2</span></div>
+              <div class="led led-green" data-led="2"><span>3</span></div>
+              <div class="led led-blue" data-led="3"><span>4</span></div>
+            </div>
+            <div class="song-slots" id="songSlots"></div>
+          </section>
+
+          <section class="legend" aria-label="Button guide">
+            <h2>Controls</h2>
+            <dl>
+              <div><dt>1-4</dt><dd>Flash LED 1 through LED 4</dd></div>
+              <div><dt>5</dt><dd>Start recording into the selected slot</dd></div>
+              <div><dt>6</dt><dd>Stop recording and save the slot</dd></div>
+              <div><dt>A-D</dt><dd>Select and play saved songs</dd></div>
+            </dl>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
