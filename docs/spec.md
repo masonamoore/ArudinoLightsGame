@@ -13,6 +13,7 @@ This is the working build spec for the Arduino light game. It documents the v1 b
 - Keys `A`, `B`, `C`, and `D` select and play saved slots.
 - Save slots store up to 64 notes each.
 - Songs are represented as a fixed-size linked list backed by an array, avoiding dynamic heap allocation on the Arduino.
+- Songs use RAM storage for v1, so saved slots reset when the Arduino loses power.
 - A browser simulator mirrors the keypad and LED behavior.
 - Wiring is documented in both Markdown and SVG.
 
@@ -26,18 +27,20 @@ This is the working build spec for the Arduino light game. It documents the v1 b
 | Keypad columns | `D30`, `D32`, `D34`, `D36` |
 | Ground | Arduino `GND` to breadboard ground rail |
 
-## Open Decisions
+## Confirmed Decisions
 
 ### 1. Should songs survive power loss?
 
-Recommendation for first build: keep RAM storage.
+Decision: keep RAM storage for v1.
 
 | Option | Pros | Cons |
 | --- | --- | --- |
 | RAM storage | Simple, fast, low risk while testing keypad and LEDs | Songs disappear when the Arduino resets or loses power |
 | EEPROM storage | Songs survive unplugging the Arduino | More code complexity and EEPROM has limited write cycles |
 
-### 2. Should `A`-`D` play immediately or only select a slot?
+## Open Decisions
+
+### 1. Should `A`-`D` play immediately or only select a slot?
 
 Recommendation for first build: play immediately when the slot has notes.
 
@@ -46,7 +49,7 @@ Recommendation for first build: play immediately when the slot has notes.
 | Select and play | Fewer buttons needed, fast to test saved patterns | You cannot select a filled slot without playing it |
 | Select only | Cleaner mental model for recording into old slots | Needs another play key, likely `#` or `*` |
 
-### 3. Is the buzzer required?
+### 2. Is the buzzer required?
 
 Recommendation for first build: keep it optional.
 
@@ -55,7 +58,7 @@ Recommendation for first build: keep it optional.
 | Optional buzzer | Game works even if the kit buzzer is missing or annoying | Slightly less feedback |
 | Required buzzer | More musical, easier to hear recording/playback | More wiring and one more part to debug |
 
-### 4. What should unused keys do?
+### 3. What should unused keys do?
 
 Recommendation for first build: leave `0`, `7`, `8`, `9`, `*`, and `#` unused.
 
@@ -79,5 +82,5 @@ Answer these after the first breadboard test:
 
 1. Do the keypad labels match the pressed keys in Serial Monitor?
 2. Do LED 1-4 light in the intended physical order?
-3. Do you want songs to persist after unplugging the Arduino?
-4. Should `A`-`D` play immediately or only select the slot?
+3. Should `A`-`D` play immediately or only select the slot?
+4. Should the buzzer stay optional after the first hardware test?
