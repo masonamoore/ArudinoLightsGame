@@ -1,6 +1,6 @@
 # Arduino Light Recorder Game
 
-An Arduino Mega 2560 keypad game that lets you play four LEDs, record a light pattern, and save/play up to four songs from keypad slots `A` through `D`.
+An Elegoo Mega 2560 keypad game that lets you play four LEDs, record a light pattern, and save/play up to four songs from keypad slots `A` through `D`.
 
 ## Game Controls
 
@@ -21,14 +21,14 @@ The Arduino sketch stores each saved pattern as a fixed-size linked list inside 
 
 ## Hardware
 
-- Arduino Mega 2560
+- Elegoo Mega 2560 controller board
 - 4x4 membrane keypad
 - 4 LEDs
 - 4 220 ohm resistors
 - Passive buzzer, optional but supported
 - Breadboard and jumper wires
 
-Wire the board from [docs/wiring.md](docs/wiring.md), or open the visual diagram at [docs/wiring.svg](docs/wiring.svg).
+Wire the board from [docs/wiring.md](docs/wiring.md), or open the visual diagram at [docs/wiring.svg](docs/wiring.svg). The wiring guide uses breadboard row numbers and the plain Mega pin labels printed on the Elegoo board.
 
 The confirmed v1 feature spec lives in [docs/spec.md](docs/spec.md).
 
@@ -103,7 +103,7 @@ http://127.0.0.1:4173/simulator/index.html
 
 ## Current Assumptions
 
-- Board: Arduino Mega 2560.
+- Board: Elegoo Mega 2560 controller board.
 - Keypad: standard 4x4 membrane keypad with rows on pins `22`, `24`, `26`, `28` and columns on pins `30`, `32`, `34`, `36`.
 - LEDs: pins `2`, `3`, `4`, and `5`.
 - Buzzer: pin `9`.

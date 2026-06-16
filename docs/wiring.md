@@ -1,69 +1,86 @@
 # Wiring Diagram
 
-This layout targets an Arduino Mega 2560, a 4x4 membrane keypad, four LEDs, four 220 ohm resistors, and an optional passive buzzer.
+This layout targets the Elegoo Mega 2560 controller board, a full-size breadboard, a 4x4 membrane keypad, four LEDs, four 220 ohm resistors, and an optional passive buzzer.
 
-Open [wiring.svg](wiring.svg) for a visual breadboard-style reference while you build.
+Open [wiring.svg](wiring.svg) for a visual breadboard reference while you build.
 
-## Pin Map
+## Board Labels
 
-| Part | Arduino pin | Breadboard connection |
+The Elegoo Mega board labels the digital header pins as plain numbers. In this guide, `2`, `3`, `4`, `5`, `9`, `22`, `24`, `26`, `28`, `30`, `32`, `34`, and `36` mean those exact numbered Mega pins.
+
+`GND` means a ground pin. `5V` means the 5 volt power pin, used here as the red breadboard charge rail.
+
+## Breadboard Coordinate Plan
+
+Use the breadboard row numbers printed on the side. Put the LED legs across the center gap so the anode and cathode are not connected to each other.
+
+| Breadboard point | Connects to | Purpose |
 | --- | --- | --- |
-| LED 1 anode | D2 | LED 1 long leg through 220 ohm resistor |
-| LED 2 anode | D3 | LED 2 long leg through 220 ohm resistor |
-| LED 3 anode | D4 | LED 3 long leg through 220 ohm resistor |
-| LED 4 anode | D5 | LED 4 long leg through 220 ohm resistor |
-| LED cathodes | GND | Short legs to ground rail |
-| Buzzer + | D9 | Positive buzzer leg |
-| Buzzer - | GND | Negative buzzer leg |
-| Keypad R1 | D22 | Keypad row 1 |
-| Keypad R2 | D24 | Keypad row 2 |
-| Keypad R3 | D26 | Keypad row 3 |
-| Keypad R4 | D28 | Keypad row 4 |
-| Keypad C1 | D30 | Keypad column 1 |
-| Keypad C2 | D32 | Keypad column 2 |
-| Keypad C3 | D34 | Keypad column 3 |
-| Keypad C4 | D36 | Keypad column 4 |
+| Red `+` rail | Mega `5V` | Charge rail, available for modules that need 5V |
+| Blue `-` rail | Mega `GND` | Shared ground rail |
+| Row `6a` | Mega pin `2` through a 220 ohm resistor | LED 1 signal |
+| Row `6f` | LED 1 long leg | LED 1 anode |
+| Row `6j` | Blue `-` rail | LED 1 short leg to ground |
+| Row `8a` | Mega pin `3` through a 220 ohm resistor | LED 2 signal |
+| Row `8f` | LED 2 long leg | LED 2 anode |
+| Row `8j` | Blue `-` rail | LED 2 short leg to ground |
+| Row `10a` | Mega pin `4` through a 220 ohm resistor | LED 3 signal |
+| Row `10f` | LED 3 long leg | LED 3 anode |
+| Row `10j` | Blue `-` rail | LED 3 short leg to ground |
+| Row `12a` | Mega pin `5` through a 220 ohm resistor | LED 4 signal |
+| Row `12f` | LED 4 long leg | LED 4 anode |
+| Row `12j` | Blue `-` rail | LED 4 short leg to ground |
+| Row `16a` | Mega pin `9` | Buzzer positive leg |
+| Row `16j` | Blue `-` rail | Buzzer negative leg |
 
-## Breadboard View
+## Keypad Wire Order
+
+Most 4x4 membrane keypads have 8 pins on the ribbon cable. Hold the keypad facing you with the ribbon pins pointing down. Number the ribbon wires from left to right as `1` through `8`.
+
+Land the keypad ribbon on breadboard rows `21` through `28`, then run jumpers from those rows to the Mega:
+
+| Keypad wire | Breadboard row | Mega pin | Code meaning |
+| --- | --- | --- | --- |
+| Wire `1` | `21e` | `22` | Row 1 |
+| Wire `2` | `22e` | `24` | Row 2 |
+| Wire `3` | `23e` | `26` | Row 3 |
+| Wire `4` | `24e` | `28` | Row 4 |
+| Wire `5` | `25e` | `30` | Column 1 |
+| Wire `6` | `26e` | `32` | Column 2 |
+| Wire `7` | `27e` | `34` | Column 3 |
+| Wire `8` | `28e` | `36` | Column 4 |
+
+The keypad is a switch matrix, so it does not use the red `+` charge rail or the blue `-` ground rail in this build. It only needs the 8 signal wires above.
+
+## Flow Summary
 
 ```mermaid
 flowchart LR
-  Mega["Arduino Mega 2560"]
-  RailG["Breadboard GND rail"]
-  Keypad["4x4 Keypad"]
-  Buzzer["Passive buzzer"]
+  Mega["Elegoo Mega 2560"]
+  Charge["Breadboard red + charge rail"]
+  Ground["Breadboard blue - ground rail"]
+  LEDS["LED rows 6, 8, 10, 12"]
+  Keypad["Keypad rows 21-28"]
+  Buzzer["Buzzer row 16"]
 
-  Mega -- "5V, optional only if your keypad board requires it" --> Keypad
-  Mega -- "GND" --> RailG
-  Mega -- "D22 D24 D26 D28" --> Keypad
-  Mega -- "D30 D32 D34 D36" --> Keypad
-  Mega -- "D9" --> Buzzer
-  Buzzer -- "negative leg" --> RailG
-
-  subgraph LEDs["LED outputs"]
-    L1["D2 -> 220 ohm -> LED 1 anode"]
-    L2["D3 -> 220 ohm -> LED 2 anode"]
-    L3["D4 -> 220 ohm -> LED 3 anode"]
-    L4["D5 -> 220 ohm -> LED 4 anode"]
-  end
-
-  Mega --> L1
-  Mega --> L2
-  Mega --> L3
-  Mega --> L4
-  L1 -- "LED short leg" --> RailG
-  L2 -- "LED short leg" --> RailG
-  L3 -- "LED short leg" --> RailG
-  L4 -- "LED short leg" --> RailG
+  Mega -- "5V" --> Charge
+  Mega -- "GND" --> Ground
+  Mega -- "pins 2, 3, 4, 5 -> resistors -> LED long legs" --> LEDS
+  LEDS -- "LED short legs" --> Ground
+  Mega -- "pin 9 -> buzzer +" --> Buzzer
+  Buzzer -- "buzzer -" --> Ground
+  Mega -- "pins 22, 24, 26, 28, 30, 32, 34, 36" --> Keypad
 ```
 
 ## Physical Build Order
 
-1. Put each LED across the breadboard center gap so the legs are not in the same row.
-2. Connect each LED short leg to the ground rail.
-3. Connect each LED long leg to a 220 ohm resistor, then from the resistor to D2, D3, D4, and D5.
-4. Connect the buzzer positive leg to D9 and the negative leg to the ground rail.
-5. Connect the keypad eight-pin ribbon to D22, D24, D26, D28, D30, D32, D34, and D36 in row-then-column order.
-6. Connect Arduino GND to the breadboard ground rail.
+1. Connect Mega `5V` to the breadboard red `+` rail.
+2. Connect Mega `GND` to the breadboard blue `-` rail.
+3. Put LED 1 on row `6`, LED 2 on row `8`, LED 3 on row `10`, and LED 4 on row `12`.
+4. Connect each LED short leg to the blue `-` ground rail.
+5. Connect Mega pins `2`, `3`, `4`, and `5` to the matching LED rows through 220 ohm resistors.
+6. Put the buzzer on row `16`; connect buzzer `+` to Mega pin `9` and buzzer `-` to the blue `-` rail.
+7. Put keypad wires `1` through `8` on breadboard rows `21` through `28`.
+8. Connect rows `21` through `28` to Mega pins `22`, `24`, `26`, `28`, `30`, `32`, `34`, and `36` in that order.
 
-If the keypad buttons seem scrambled, keep the code the same and swap the row/column pin order in `rowPins` and `colPins` until pressing `1`, `2`, `3`, `A` matches the first row.
+If the keypad buttons seem scrambled, keep the wiring neat and swap the `rowPins` or `colPins` order in `LightRecorderGame.ino` until pressing `1`, `2`, `3`, `A` matches the first row.

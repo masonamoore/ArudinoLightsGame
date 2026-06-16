@@ -4,7 +4,7 @@ This is the working build spec for the Arduino light game. It documents the v1 b
 
 ## Implemented V1
 
-- Board: Arduino Mega 2560.
+- Board: Elegoo Mega 2560 controller board.
 - Input: 4x4 membrane keypad.
 - Output: four LEDs and an optional passive buzzer.
 - Keys `1`, `2`, `3`, and `4` each flash one matching LED.
@@ -23,11 +23,12 @@ This is the working build spec for the Arduino light game. It documents the v1 b
 
 | Function | Pins |
 | --- | --- |
-| LED 1-4 | `D2`, `D3`, `D4`, `D5` |
-| Passive buzzer | `D9` |
-| Keypad rows | `D22`, `D24`, `D26`, `D28` |
-| Keypad columns | `D30`, `D32`, `D34`, `D36` |
-| Ground | Arduino `GND` to breadboard ground rail |
+| LED 1-4 | Mega pins `2`, `3`, `4`, `5` |
+| Passive buzzer | Mega pin `9` |
+| Keypad rows | Mega pins `22`, `24`, `26`, `28` |
+| Keypad columns | Mega pins `30`, `32`, `34`, `36` |
+| Charge rail | Mega `5V` to breadboard red `+` rail |
+| Ground rail | Mega `GND` to breadboard blue `-` rail |
 
 ## Confirmed Decisions
 
