@@ -30,6 +30,8 @@ The Arduino sketch stores each saved pattern as a fixed-size linked list inside 
 
 Wire the board from [docs/wiring.md](docs/wiring.md), or open the visual diagram at [docs/wiring.svg](docs/wiring.svg).
 
+The working feature spec and remaining hardware decisions live in [docs/spec.md](docs/spec.md).
+
 ## Run The Arduino Code
 
 Install the Arduino CLI and the keypad library:
