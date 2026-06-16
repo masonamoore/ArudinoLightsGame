@@ -11,6 +11,8 @@ This is the working build spec for the Arduino light game. It documents the v1 b
 - Key `5` starts recording into the selected save slot.
 - Key `6` stops recording and saves the current sequence.
 - Keys `A`, `B`, `C`, and `D` select and play saved slots.
+- The buzzer is optional for v1.
+- Keys `0`, `7`, `8`, `9`, `*`, and `#` are intentionally unused for v1.
 - Save slots store up to 64 notes each.
 - Songs are represented as a fixed-size linked list backed by an array, avoiding dynamic heap allocation on the Arduino.
 - Songs use RAM storage for v1, so saved slots reset when the Arduino loses power.
@@ -38,29 +40,27 @@ Decision: keep RAM storage for v1.
 | RAM storage | Simple, fast, low risk while testing keypad and LEDs | Songs disappear when the Arduino resets or loses power |
 | EEPROM storage | Songs survive unplugging the Arduino | More code complexity and EEPROM has limited write cycles |
 
-## Open Decisions
+### 2. Should `A`-`D` play immediately or only select a slot?
 
-### 1. Should `A`-`D` play immediately or only select a slot?
-
-Recommendation for first build: play immediately when the slot has notes.
+Decision: select and play immediately when the slot has notes.
 
 | Option | Pros | Cons |
 | --- | --- | --- |
 | Select and play | Fewer buttons needed, fast to test saved patterns | You cannot select a filled slot without playing it |
 | Select only | Cleaner mental model for recording into old slots | Needs another play key, likely `#` or `*` |
 
-### 2. Is the buzzer required?
+### 3. Is the buzzer required?
 
-Recommendation for first build: keep it optional.
+Decision: keep the buzzer optional for v1.
 
 | Option | Pros | Cons |
 | --- | --- | --- |
 | Optional buzzer | Game works even if the kit buzzer is missing or annoying | Slightly less feedback |
 | Required buzzer | More musical, easier to hear recording/playback | More wiring and one more part to debug |
 
-### 3. What should unused keys do?
+### 4. What should unused keys do?
 
-Recommendation for first build: leave `0`, `7`, `8`, `9`, `*`, and `#` unused.
+Decision: leave `0`, `7`, `8`, `9`, `*`, and `#` unused for v1.
 
 | Option | Pros | Cons |
 | --- | --- | --- |
@@ -76,11 +76,10 @@ Recommendation for first build: leave `0`, `7`, `8`, `9`, `*`, and `#` unused.
 5. Press `A`; confirm the saved pattern replays.
 6. If keypad buttons are scrambled, adjust `rowPins` and `colPins` in `LightRecorderGame.ino`.
 
-## Next Confirmations
+## Hardware Test Confirmations
 
 Answer these after the first breadboard test:
 
 1. Do the keypad labels match the pressed keys in Serial Monitor?
 2. Do LED 1-4 light in the intended physical order?
-3. Should `A`-`D` play immediately or only select the slot?
-4. Should the buzzer stay optional after the first hardware test?
+3. Does the optional buzzer make a tone when LEDs flash?
